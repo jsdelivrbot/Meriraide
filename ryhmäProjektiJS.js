@@ -12,7 +12,7 @@ fetch(junaApi).
         let koordinaatti1 = trainsArray[i].location.coordinates[0];
         let koordinaatti2 = trainsArray[i].location.coordinates[1];
         
-        if (junanNopeus > 0 ) {
+        if (junanNopeus > 0 ) { //näyttää liikkuvat junat
           console.log('___________________________');
           console.log('Junan numero: ' + junanNumero);
           console.log('Junan nopeus: ' + junanNopeus);
