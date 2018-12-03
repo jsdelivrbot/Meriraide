@@ -16,8 +16,8 @@ fetch(junaApi).
           console.log('___________________________');
           console.log('Junan numero: ' + junanNumero);
           console.log('Junan nopeus: ' + junanNopeus);
-          console.log('WGS84: '+ koordinaatti1+' ' +koordinaatti2);
-          //wgs84 pitää muuttaa toiseen formaattiin
+          console.log('lat long: '+ koordinaatti1+' ' +koordinaatti2);
+          //latitudet ja longitudet ei välttämättä käy sellaisenaan paikan näyttämiseen kartalla
         }
       }
 
