@@ -60,7 +60,7 @@ fetch('https://rata.digitraffic.fi/api/v1/train-locations/latest/').
     });
 
 }
-markerVectorLayer.removeFeatures();
+
 let intervalli = setInterval(junat, 3000);
 
 
