@@ -13,6 +13,8 @@ let map = new ol.Map({
 
 });
 
+function junat(){
+
 fetch('https://rata.digitraffic.fi/api/v1/train-locations/latest/').
     then((resp) => resp.json()).
     then(function(api) {
@@ -31,6 +33,7 @@ fetch('https://rata.digitraffic.fi/api/v1/train-locations/latest/').
         console.log('Koordinaatti x: ' + koordinaattiX);
         console.log('Koordinaatti y: ' + koordinaattiY);
 
+
         let marker = new ol.Feature({
           geometry: new ol.geom.Point(
               ol.proj.fromLonLat([koordinaattiX, koordinaattiY]),
@@ -44,13 +47,20 @@ fetch('https://rata.digitraffic.fi/api/v1/train-locations/latest/').
         });
         map.addLayer(markerVectorLayer);
 
+
         marker.setStyle(new ol.style.Style({
           image: new ol.style.Icon(({
             crossOrigin: 'anonymous',
             src: 'junaicon.png'
           }))
         }));
+
       }
 
     });
+
+}
+markerVectorLayer.removeFeatures();
+let intervalli = setInterval(junat, 3000);
+
 
