@@ -1,0 +1,103 @@
+body{
+	padding:0px;
+	margin:0px;
+	display:flex;
+	flex-wrap:wrap;
+	font-family:Verdana, Geneva, sans-serif;
+
+}
+
+a>p{
+ padding:1em;
+}
+
+
+#headerimg {
+	position:relative;
+	width:100%;
+}
+
+div.header {
+	position:absolute;
+	bottom:25%;
+	left:1rem;
+	color:white;
+	font-size:16px;
+	height:2rem;
+}
+
+#box{
+padding:2em;
+	height:60%;
+	width:100%;
+
+
+}
+
+.linkki{
+	border:solid;
+	border-width:2px;
+	 box-sizing: border-box;
+}
+#junakartta {
+	width:100%;
+	display: inline-flex;
+}
+
+#merikartta{
+	width:100%;
+	display: inline-flex;
+}
+
+a{
+  text-decoration:none;
+  
+}
+
+
+a:visited, a:link{
+ color:black;
+}
+
+a>img{
+	padding:1em;
+	width:8em;
+	}
+
+#junakartta p, #merikartta p{
+	margin:0px;
+}
+
+
+
+#footer{
+	width:100%;
+	background-color:green;
+}
+
+#footernav{
+	display:inline-flex;
+	flex-direction:row;
+	justify-content:space-between;
+}
+
+ul{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	display:inline-flex;
+	flex-direction:row;
+	justify-content:space-around;
+	list-style-type:none;
+}
+
+li {
+	padding:1em;
+	flex-grow:1;
+	text-align:center;
+	font-size:13px;
+}
+
+div h1{
+margin:0px;
+}
