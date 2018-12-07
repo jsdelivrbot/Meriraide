@@ -8,11 +8,17 @@ let map = new ol.Map({
   ],
   view: new ol.View({
     center: ol.proj.fromLonLat([24.41, 62.82]),
-    zoom: 5.8
+    zoom: 5.8,
+    minZoom: 4,
+    maxZoom: 10,
   })
 
 });
+
+let aloitus = true;
+let currentZoom = 0;
 function laivat(){
+
 fetch('https://meri.digitraffic.fi/api/v1/locations/latest/').
       then((resp) => resp.json()).
       then(function(api) {
@@ -58,14 +64,25 @@ fetch('https://meri.digitraffic.fi/api/v1/locations/latest/').
 
             setTimeout(function() {
               map.removeLayer(markerVectorLayer)
-            }, 4000);
+            }, 5000);
 
-            marker.setStyle(new ol.style.Style({
-              image: new ol.style.Icon(({
-                crossOrigin: 'anonymous',
-                src: 'laivaicon1.png'
-              }))
-            }));
+            aloitus = false;
+
+              if(currentZoom>=5) {
+                marker.setStyle(new ol.style.Style({
+                  image: new ol.style.Icon(({
+                    crossOrigin: 'anonymous',
+                    src: 'laivaicon1.png'
+                  }))
+                }));
+              }else if (currentZoom<5){
+                marker.setStyle(new ol.style.Style({
+                  image: new ol.style.Icon(({
+                    crossOrigin: 'anonymous',
+                    src: 'laivaicon2.png'
+                  }))
+                }));
+              }
           }
           }
         }
@@ -73,7 +90,16 @@ fetch('https://meri.digitraffic.fi/api/v1/locations/latest/').
       });
 
 }
-setInterval(laivat, 4000);
+
+if (aloitus) {
+  laivat();
+}
+function zoomi () {
+  currentZoom = map.getView().getZoom();
+}
+
+setInterval(zoomi, 100);
+setInterval(laivat, 5000);
 
 
 
