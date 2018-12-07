@@ -61,8 +61,6 @@ function juna() {
 
           aloitus = false;
 
-
-
           if(currentZoom>=5) {
             marker.setStyle(new ol.style.Style({
               image: new ol.style.Icon(({
@@ -95,7 +93,3 @@ function zoomi () {
 setInterval(zoomi, 100);
 
 setInterval(juna, 5000);
-marker.addEventListener("click", perkele);
-function perkele(){
-  alert("SAATANA PERKELE");
-}
