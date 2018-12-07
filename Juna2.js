@@ -12,6 +12,8 @@ let map = new ol.Map({
 
 });
 
+let aloitus = true;
+
 function juna() {
 
   fetch('https://rata.digitraffic.fi/api/v1/train-locations/latest/').
@@ -53,6 +55,7 @@ function juna() {
             map.removeLayer(markerVectorLayer)
           }, 5000);
 
+          aloitus = false;
 
           marker.setStyle(new ol.style.Style({
             image: new ol.style.Icon(({
@@ -65,4 +68,9 @@ function juna() {
 
       });
 }
+
+if (aloitus) {
+  juna();
+}
+
 setInterval(juna, 5000);
